@@ -25,10 +25,10 @@ class DonateCapeRenderer : RenderPlayer() {
         if (getPotion(player, Potion.invisibility.id)) return
         try {
             var cape: ResourceLocation? = null
-            for (name in donateList) {
+            loop@for (name in donateList) {
                 if (player.displayName.equals(name, ignoreCase = true)) {
                     cape = DONATE_CAPE
-                    break
+                    break@loop
                 }
             }
             if (cape != null && !player.hideCape) {
@@ -71,12 +71,7 @@ class DonateCapeRenderer : RenderPlayer() {
 
     companion object {
         private val DONATE_CAPE = ResourceLocation("support:textures/DonateCape.png")
-        private val donateList: MutableList<String> = ArrayList()
-
-        init {
-            donateList.add("4gname")
-            donateList.add("Developer")
-        }
+        val donateList: MutableList<String> = ArrayList()
 
         fun getPotion(aPlayer: EntityLivingBase?, aPotionIndex: Int): Boolean {
             try {

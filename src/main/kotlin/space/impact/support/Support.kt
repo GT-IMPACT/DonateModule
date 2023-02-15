@@ -5,6 +5,7 @@ import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.SidedProxy
 import cpw.mods.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.common.MinecraftForge
+import space.impact.support.parser.CapeParser
 import space.impact.support.proxy.CommonProxy
 
 
@@ -17,6 +18,10 @@ import space.impact.support.proxy.CommonProxy
     dependencies = "required-after:forgelin;"
 )
 object Support {
+
+    init {
+        CapeParser.parseCapeList()
+    }
 
     @SidedProxy(clientSide = "$GROUPNAME.proxy.ClientProxy", serverSide = "$GROUPNAME.proxy.CommonProxy")
     lateinit var proxy: CommonProxy
