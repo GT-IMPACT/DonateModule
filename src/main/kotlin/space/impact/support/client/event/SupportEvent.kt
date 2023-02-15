@@ -13,7 +13,7 @@ class SupportEvent {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    fun receiveRenderSpecialsEvent(e: RenderPlayerEvent.Specials.Pre) {
+    fun receiveRenderSpecialsEvent(e: RenderPlayerEvent.Specials.Post) {
         donateCapeRenderer.render(e)
     }
 }

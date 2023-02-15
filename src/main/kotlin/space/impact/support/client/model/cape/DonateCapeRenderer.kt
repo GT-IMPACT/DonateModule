@@ -18,7 +18,7 @@ class DonateCapeRenderer : RenderPlayer() {
     init {
         setRenderManager(RenderManager.instance)
     }
-    fun render(event: RenderPlayerEvent.Specials.Pre) {
+    fun render(event: RenderPlayerEvent.Specials.Post) {
         val player = event.entityPlayer as AbstractClientPlayer
         val partialTicks = event.partialRenderTick
         if (player.isInvisible) return
